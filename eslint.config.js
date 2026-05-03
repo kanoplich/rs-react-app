@@ -2,26 +2,53 @@ import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import reactPlugin from 'eslint-plugin-react';
+import react from 'eslint-plugin-react';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import tseslint from 'typescript-eslint';
-import { defineConfig, globalIgnores } from 'eslint/config';
+import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
+import { defineConfig } from 'eslint/config';
 
-export default defineConfig([
-  globalIgnores(['dist']),
+export default defineConfig(
+  { ignores: ['node_modules', 'dist'] },
   {
-    files: ['**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-      tseslint.configs.recommended,
+      ...tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
-      reactPlugin.configs.flat.recommended,
-      reactPlugin.configs.flat['jsx-runtime'],
+      react.configs.flat.recommended,
+      react.configs.flat['jsx-runtime'],
       eslintConfigPrettier,
+      eslintPluginPrettier,
     ],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
+      ecmaVersion: 2023,
       globals: globals.browser,
     },
-  },
-]);
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  }
+);
