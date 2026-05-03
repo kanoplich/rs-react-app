@@ -30,7 +30,7 @@ export class SearchBar extends Component<SearchBarProps, SearchBarState> {
     const { query } = this.state;
 
     return (
-      <div className="flex">
+      <div className="flex mb-4">
         <Search
           value={query}
           onChange={this.handleChange}
