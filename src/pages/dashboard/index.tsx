@@ -3,6 +3,7 @@ import { SearchBar } from './ui/search-bar';
 import { Card } from './ui/card/card';
 import { Loader } from '@/shared/ui';
 import type { PokemonData, Results, SearchResult } from '@/shared/types/data';
+import { ErrorFallback } from '@/app/providers/error-boundary/error-fallback';
 
 interface DashboardProps {
   name?: string;
@@ -32,14 +33,17 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
 
   componentDidMount() {
     this.isMounted = true;
-    const { searchQuery } = this.state;
+    this.loadInitialData();
+  }
 
+  loadInitialData = () => {
+    const { searchQuery } = this.state;
     if (searchQuery) {
       this.searchData(searchQuery);
     } else {
       this.fetchData();
     }
-  }
+  };
 
   fetchData = async () => {
     this.setState({ loading: true, error: null });
@@ -83,7 +87,7 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
 
     try {
       const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`
+        `https://pokeapi.co/api/v2/pokemon/${query.toLowerCase().trim()}`
       );
 
       if (!response.ok) {
@@ -102,7 +106,7 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
     } catch (err) {
       if (this.isMounted) {
         this.setState({
-          error: err instanceof Error ? err.message : 'Pokemon not found',
+          error: err instanceof Error ? err.message : 'Data not found',
           loading: false,
           data: null,
         });
@@ -121,14 +125,23 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
     }
   };
 
+  handleResetError = (): void => {
+    this.setState({
+      error: null,
+    });
+
+    this.loadInitialData();
+  };
+
   render() {
-    const { loading, data, searchQuery } = this.state;
+    const { loading, data, searchQuery, error } = this.state;
+
     return (
       <>
         <SearchBar
           onSearch={this.handleSearch}
           initialValue={searchQuery}
-          placeholder="Search... Enter only full name"
+          placeholder="Search... Enter full name"
         />
 
         {loading && <Loader />}
@@ -139,6 +152,10 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
               <Card key={item.name} name={item.name} url={item.url} />
             ))}
           </div>
+        )}
+
+        {error && (
+          <ErrorFallback error={error} resetError={this.handleResetError} />
         )}
       </>
     );
