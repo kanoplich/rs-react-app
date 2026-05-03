@@ -5,7 +5,11 @@ export type PokemonData = {
   results: Results[];
 };
 
-type Results = {
+export type Results = {
   name: string;
   url: string;
+};
+
+export type SearchResult = {
+  forms: Results[];
 };

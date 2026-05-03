@@ -3,6 +3,7 @@ import { Search, Button } from '@/shared/ui';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
+  initialValue?: string;
   placeholder?: string;
   disabled?: boolean;
 }
@@ -14,7 +15,7 @@ interface SearchBarState {
 export class SearchBar extends Component<SearchBarProps, SearchBarState> {
   constructor(props: SearchBarProps) {
     super(props);
-    this.state = { query: '' };
+    this.state = { query: props.initialValue || '' };
   }
 
   handleSearch = () => {
@@ -30,7 +31,7 @@ export class SearchBar extends Component<SearchBarProps, SearchBarState> {
     const { query } = this.state;
 
     return (
-      <div className="flex mb-4">
+      <div className="flex my-6">
         <Search
           value={query}
           onChange={this.handleChange}

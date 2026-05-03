@@ -4,9 +4,9 @@ import { Component } from 'react';
 export class Footer extends Component {
   render() {
     return (
-      <footer className="text-bg flex justify-between items-center my-2">
-        <span className="text-xl text-text-h font-bold">2026</span>
-        <div className="flex justify-center items-center gap-4">
+      <footer className="bg-accent-bg rounded-md flex justify-between items-center mt-3">
+        <span className="text-xl text-text-h font-bold mx-2">2026</span>
+        <div className="flex justify-center items-center gap-4 my-2">
           <a
             href="https://github.com/kanoplich"
             target="_blank"
