@@ -1,7 +1,8 @@
 import { Component } from 'react';
+import { Layout } from './layout';
 
 export class App extends Component {
   render() {
-    return <h1>RS-React-App</h1>;
+    return <Layout />;
   }
 }

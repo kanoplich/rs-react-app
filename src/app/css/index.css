@@ -80,3 +80,7 @@
     @apply text-accent transition-colors;
   }
 }
+
+.app {
+  @apply min-h-screen flex flex-col;
+}
