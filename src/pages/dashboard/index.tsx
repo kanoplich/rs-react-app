@@ -4,6 +4,7 @@ import { Card } from './ui/card/card';
 import { Loader } from '@/shared/ui';
 import type { PokemonData, Results, SearchResult } from '@/shared/types/data';
 import { ErrorFallback } from '@/app/providers/error-boundary/error-fallback';
+import { TestErrorButton } from './ui/test-error-button';
 
 interface DashboardProps {
   name?: string;
@@ -157,6 +158,8 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
         {error && (
           <ErrorFallback error={error} resetError={this.handleResetError} />
         )}
+
+        <TestErrorButton />
       </>
     );
   }
