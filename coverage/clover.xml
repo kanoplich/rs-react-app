@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1778429156340" clover="3.2.0">
-  <project timestamp="1778429156341" name="All files">
-    <metrics statements="101" coveredstatements="80" conditionals="46" coveredconditionals="33" methods="35" coveredmethods="28" elements="182" coveredelements="141" complexity="0" loc="101" ncloc="101" packages="17" files="21" classes="21"/>
+<coverage generated="1778430145695" clover="3.2.0">
+  <project timestamp="1778430145695" name="All files">
+    <metrics statements="101" coveredstatements="82" conditionals="46" coveredconditionals="33" methods="35" coveredmethods="30" elements="182" coveredelements="145" complexity="0" loc="101" ncloc="101" packages="17" files="21" classes="21"/>
     <package name="src">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="main.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\main.tsx">
@@ -57,17 +57,17 @@
       </file>
     </package>
     <package name="src.app.ui.footer">
-      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\ui\footer\index.tsx">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.app.ui.header">
-      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\ui\header\index.tsx">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.pages">
