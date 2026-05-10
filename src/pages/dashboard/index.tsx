@@ -84,7 +84,7 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
 
       if (this.isMounted) {
         this.setState({
-          data,
+          data: [data],
           loading: false,
           error: null,
         });

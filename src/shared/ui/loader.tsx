@@ -3,7 +3,10 @@ import { Component } from 'react';
 export class Loader extends Component {
   render() {
     return (
-      <div className="flex justify-center items-center p-4">
+      <div
+        data-testid="loader"
+        className="flex justify-center items-center p-4"
+      >
         <div
           className="
             w-8 h-8 border-4
