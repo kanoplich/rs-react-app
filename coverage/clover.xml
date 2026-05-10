@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1778430145695" clover="3.2.0">
-  <project timestamp="1778430145695" name="All files">
-    <metrics statements="101" coveredstatements="82" conditionals="46" coveredconditionals="33" methods="35" coveredmethods="30" elements="182" coveredelements="145" complexity="0" loc="101" ncloc="101" packages="17" files="21" classes="21"/>
+<coverage generated="1778430628500" clover="3.2.0">
+  <project timestamp="1778430628500" name="All files">
+    <metrics statements="101" coveredstatements="82" conditionals="46" coveredconditionals="34" methods="35" coveredmethods="30" elements="182" coveredelements="146" complexity="0" loc="101" ncloc="101" packages="17" files="21" classes="21"/>
     <package name="src">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="main.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\main.tsx">
@@ -30,11 +30,11 @@
       </file>
     </package>
     <package name="src.app.providers.error-boundary">
-      <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="5"/>
+      <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="5"/>
       <file name="error-fallback.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\providers\error-boundary\error-fallback.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
       </file>
       <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\providers\error-boundary\index.tsx">
         <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="4"/>
