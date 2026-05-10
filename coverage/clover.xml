@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1778427665882" clover="3.2.0">
-  <project timestamp="1778427665883" name="All files">
-    <metrics statements="101" coveredstatements="68" conditionals="46" coveredconditionals="30" methods="35" coveredmethods="23" elements="182" coveredelements="121" complexity="0" loc="101" ncloc="101" packages="17" files="21" classes="21"/>
+<coverage generated="1778429156340" clover="3.2.0">
+  <project timestamp="1778429156341" name="All files">
+    <metrics statements="101" coveredstatements="80" conditionals="46" coveredconditionals="33" methods="35" coveredmethods="28" elements="182" coveredelements="141" complexity="0" loc="101" ncloc="101" packages="17" files="21" classes="21"/>
     <package name="src">
       <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="main.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\main.tsx">
@@ -30,24 +30,24 @@
       </file>
     </package>
     <package name="src.app.providers.error-boundary">
-      <metrics statements="12" coveredstatements="2" conditionals="4" coveredconditionals="1" methods="6" coveredmethods="1"/>
+      <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="5"/>
       <file name="error-fallback.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\providers\error-boundary\error-fallback.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
       </file>
       <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\providers\error-boundary\index.tsx">
-        <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
+        <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="4"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="46" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.app.ui">
@@ -149,17 +149,17 @@
       </file>
     </package>
     <package name="src.pages.dashboard.ui.test-error-button">
-      <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\pages\dashboard\ui\test-error-button\index.tsx">
-        <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
-        <line num="17" count="11" type="stmt"/>
-        <line num="18" count="11" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="33" type="cond" truecount="1" falsecount="1"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="35" count="44" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="17" count="14" type="stmt"/>
+        <line num="18" count="14" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="34" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="35" count="47" type="stmt"/>
       </file>
     </package>
     <package name="src.shared.api">
@@ -196,8 +196,8 @@
       <metrics statements="10" coveredstatements="10" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="5"/>
       <file name="button.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\ui\button.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="10" count="127" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="127" type="stmt"/>
+        <line num="10" count="130" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="130" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\ui\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
