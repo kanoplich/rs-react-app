@@ -2,9 +2,10 @@ import { Component } from 'react';
 import { SearchBar } from './ui/search-bar';
 import { Card } from './ui/card/card';
 import { Loader } from '@/shared/ui';
-import type { PokemonData, Results, SearchResult } from '@/shared/types/data';
+import type { Results } from '@/shared/types/data';
 import { ErrorFallback } from '@/app/providers/error-boundary/error-fallback';
 import { TestErrorButton } from './ui/test-error-button';
+import { fetchPokemonList, searchPokemon } from '@/shared/api';
 
 interface DashboardProps {
   name?: string;
@@ -50,19 +51,11 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
     this.setState({ loading: true, error: null });
 
     try {
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/?limit=20`
-      );
-
-      if (!response.ok) {
-        throw new Error('Fail load data');
-      }
-
-      const data: PokemonData = await response.json();
+      const data = await fetchPokemonList();
 
       if (this.isMounted) {
         this.setState({
-          data: data.results,
+          data,
           loading: false,
           error: null,
         });
@@ -79,7 +72,7 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
   };
 
   searchData = async (query: string) => {
-    if (!query.trim()) {
+    if (!query) {
       this.fetchData();
       return;
     }
@@ -87,19 +80,11 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
     this.setState({ loading: true, error: null });
 
     try {
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${query.toLowerCase().trim()}`
-      );
-
-      if (!response.ok) {
-        throw new Error('Data not found');
-      }
-
-      const data: SearchResult = await response.json();
+      const data = await searchPokemon(query);
 
       if (this.isMounted) {
         this.setState({
-          data: data.forms,
+          data: [data],
           loading: false,
           error: null,
         });
@@ -116,11 +101,13 @@ export class Dashboard extends Component<DashboardProps, DashboardState> {
   };
 
   handleSearch = (query: string) => {
-    localStorage.setItem('searchQuery', query);
-    this.setState({ searchQuery: query });
+    const queryTrimmed = query.trim().toLocaleLowerCase();
 
-    if (query.trim()) {
-      this.searchData(query);
+    localStorage.setItem('searchQuery', queryTrimmed);
+    this.setState({ searchQuery: queryTrimmed });
+
+    if (queryTrimmed) {
+      this.searchData(queryTrimmed);
     } else {
       this.fetchData();
     }

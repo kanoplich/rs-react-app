@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1778430628500" clover="3.2.0">
+  <project timestamp="1778430628500" name="All files">
+    <metrics statements="101" coveredstatements="82" conditionals="46" coveredconditionals="34" methods="35" coveredmethods="30" elements="182" coveredelements="146" complexity="0" loc="101" ncloc="101" packages="17" files="21" classes="21"/>
+    <package name="src">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="main.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\main.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\index.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app.layout">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\layout\index.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app.providers">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\providers\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.app.providers.error-boundary">
+      <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="5"/>
+      <file name="error-fallback.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\providers\error-boundary\error-fallback.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\providers\error-boundary\index.tsx">
+        <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="4"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="46" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app.ui">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\ui\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.app.ui.footer">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\ui\footer\index.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.app.ui.header">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\app\ui\header\index.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\pages\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.pages.dashboard">
+      <metrics statements="43" coveredstatements="41" conditionals="26" coveredconditionals="19" methods="9" coveredmethods="9"/>
+      <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\pages\dashboard\index.tsx">
+        <metrics statements="43" coveredstatements="41" conditionals="26" coveredconditionals="19" methods="9" coveredmethods="9"/>
+        <line num="22" count="11" type="stmt"/>
+        <line num="25" count="11" type="stmt"/>
+        <line num="27" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="11" type="stmt"/>
+        <line num="37" count="11" type="stmt"/>
+        <line num="38" count="11" type="stmt"/>
+        <line num="41" count="12" type="stmt"/>
+        <line num="42" count="12" type="stmt"/>
+        <line num="43" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="11" type="stmt"/>
+        <line num="50" count="12" type="stmt"/>
+        <line num="51" count="12" type="stmt"/>
+        <line num="53" count="12" type="stmt"/>
+        <line num="54" count="12" type="stmt"/>
+        <line num="56" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="57" count="9" type="stmt"/>
+        <line num="64" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="74" count="5" type="stmt"/>
+        <line num="75" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="80" count="5" type="stmt"/>
+        <line num="82" count="5" type="stmt"/>
+        <line num="83" count="5" type="stmt"/>
+        <line num="85" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="86" count="4" type="stmt"/>
+        <line num="93" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="103" count="5" type="stmt"/>
+        <line num="104" count="5" type="stmt"/>
+        <line num="106" count="5" type="stmt"/>
+        <line num="107" count="5" type="stmt"/>
+        <line num="109" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="110" count="4" type="stmt"/>
+        <line num="112" count="1" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
+        <line num="125" count="44" type="stmt"/>
+        <line num="127" count="44" type="stmt"/>
+        <line num="140" count="43" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages.dashboard.ui.card">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="card.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\pages\dashboard\ui\card\card.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="43" type="stmt"/>
+        <line num="12" count="43" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages.dashboard.ui.search-bar">
+      <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\pages\dashboard\ui\search-bar\index.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="25" count="39" type="stmt"/>
+        <line num="26" count="39" type="stmt"/>
+        <line num="30" count="83" type="stmt"/>
+        <line num="31" count="83" type="stmt"/>
+        <line num="33" count="83" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages.dashboard.ui.test-error-button">
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+      <file name="index.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\pages\dashboard\ui\test-error-button\index.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="17" count="14" type="stmt"/>
+        <line num="18" count="14" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="34" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="35" count="47" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.shared.api">
+      <metrics statements="12" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\api\index.ts">
+        <metrics statements="12" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.shared.assets.icons">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\assets\icons\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.shared.types">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="data.ts" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\types\data.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.shared.ui">
+      <metrics statements="10" coveredstatements="10" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="5"/>
+      <file name="button.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\ui\button.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="10" count="130" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="130" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\ui\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="loader.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\ui\loader.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="28" type="stmt"/>
+      </file>
+      <file name="search.tsx" path="C:\Users\andre\vscode\Study\React2026Q2\rs-react-app\src\shared\ui\search.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="12" count="39" type="stmt"/>
+        <line num="13" count="39" type="stmt"/>
+        <line num="16" count="44" type="stmt"/>
+        <line num="17" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="23" count="83" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="83" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
