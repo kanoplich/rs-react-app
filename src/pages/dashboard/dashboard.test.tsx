@@ -163,11 +163,11 @@ describe('Dashboard', () => {
       await user.type(searchInput, 'pikachu');
       await user.keyboard('{Enter}');
 
-      expect(localStorage.getItem('searchQuery')).toBe('pikachu');
+      expect(JSON.parse(localStorage.getItem('searchQuery')!)).toBe('pikachu');
     });
 
     it('restores the search query from localStorage', async () => {
-      localStorage.setItem('searchQuery', 'charmander');
+      localStorage.setItem('searchQuery', JSON.stringify('charmander'));
 
       vi.mocked(searchPokemon).mockResolvedValueOnce([
         {
@@ -250,7 +250,7 @@ describe('Dashboard', () => {
         expect(searchPokemon).toHaveBeenCalledWith('pikachu');
       });
 
-      expect(localStorage.getItem('searchQuery')).toBe('pikachu');
+      expect(JSON.parse(localStorage.getItem('searchQuery')!)).toBe('pikachu');
     });
   });
 });
