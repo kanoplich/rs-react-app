@@ -16,7 +16,7 @@ export const fetchPokemonList = async (
   return data.results;
 };
 
-export const searchPokemon = async (query: string): Promise<Results> => {
+export const searchPokemon = async (query: string): Promise<Results[]> => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
 
   if (!response.ok) {

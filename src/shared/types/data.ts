@@ -11,5 +11,5 @@ export type Results = {
 };
 
 export type SearchResult = {
-  forms: Results;
+  forms: Results[];
 };

@@ -16,10 +16,12 @@ describe('Dashboard', () => {
     { name: 'venusaur', url: 'https://pokeapi.co/api/v2/pokemon/3/' },
   ];
 
-  const mockSearchResult = {
-    name: 'pikachu',
-    url: 'https://pokeapi.co/api/v2/pokemon/25/',
-  };
+  const mockSearchResult = [
+    {
+      name: 'pikachu',
+      url: 'https://pokeapi.co/api/v2/pokemon/25/',
+    },
+  ];
   beforeEach(() => {
     vi.clearAllMocks();
     localStorage.clear();
@@ -167,10 +169,12 @@ describe('Dashboard', () => {
     it('restores the search query from localStorage', async () => {
       localStorage.setItem('searchQuery', 'charmander');
 
-      vi.mocked(searchPokemon).mockResolvedValueOnce({
-        name: 'charmander',
-        url: 'https://pokeapi.co/api/v2/pokemon/4/',
-      });
+      vi.mocked(searchPokemon).mockResolvedValueOnce([
+        {
+          name: 'charmander',
+          url: 'https://pokeapi.co/api/v2/pokemon/4/',
+        },
+      ]);
 
       render(<Dashboard />);
 
