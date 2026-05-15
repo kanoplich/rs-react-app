@@ -1,4 +1,4 @@
-import { Component, type ChangeEvent, type KeyboardEvent } from 'react';
+import { type ChangeEvent, type KeyboardEvent } from 'react';
 
 interface SearchProps {
   value: string;
@@ -8,29 +8,31 @@ interface SearchProps {
   disabled?: boolean;
 }
 
-export class Search extends Component<SearchProps> {
-  handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    this.props.onChange(e.target.value);
+export const Search = ({
+  value,
+  placeholder = 'Search...',
+  disabled = false,
+  onChange,
+  onSearch,
+}: SearchProps) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange(e.target.value);
   };
 
-  handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      this.props.onSearch();
+      onSearch();
     }
   };
-
-  render() {
-    const { value, placeholder = 'Search...', disabled = false } = this.props;
-
-    return (
-      <input
-        type="search"
-        value={value}
-        placeholder={placeholder}
-        onChange={this.handleChange}
-        onKeyDown={this.handleKeyDown}
-        disabled={disabled}
-        className="
+  return (
+    <input
+      type="search"
+      value={value}
+      placeholder={placeholder}
+      onChange={handleChange}
+      onKeyDown={handleKeyDown}
+      disabled={disabled}
+      className="
           flex-1 px-3 py-2 
           border border-border 
           rounded-l-md
@@ -41,7 +43,6 @@ export class Search extends Component<SearchProps> {
           focus:outline-none focus:ring-2 focus:ring-accent
           disabled:opacity-50 disabled:cursor-not-allowed
         "
-      />
-    );
-  }
-}
+    />
+  );
+};
