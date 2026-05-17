@@ -3,6 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Dashboard } from './index';
 import { fetchPokemonList, searchPokemon } from '@/shared/api';
+import { MemoryRouter } from 'react-router-dom';
 
 vi.mock('@/shared/api', () => ({
   fetchPokemonList: vi.fn(),
@@ -10,18 +11,38 @@ vi.mock('@/shared/api', () => ({
 }));
 
 describe('Dashboard', () => {
-  const mockPokemonList = [
-    { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' },
-    { name: 'ivysaur', url: 'https://pokeapi.co/api/v2/pokemon/2/' },
-    { name: 'venusaur', url: 'https://pokeapi.co/api/v2/pokemon/3/' },
-  ];
+  const mockPokemonList = {
+    count: 1,
+    next: '',
+    previous: null,
+    results: [
+      {
+        name: 'bulbasaur',
+        url: 'https://pokeapi.co/api/v2/pokemon/1/',
+      },
+      {
+        name: 'ivysaur',
+        url: 'https://pokeapi.co/api/v2/pokemon/2/',
+      },
+      {
+        name: 'venusaur',
+        url: 'https://pokeapi.co/api/v2/pokemon/3/',
+      },
+    ],
+  };
 
-  const mockSearchResult = [
-    {
-      name: 'pikachu',
-      url: 'https://pokeapi.co/api/v2/pokemon/25/',
-    },
-  ];
+  const mockSearchResult = {
+    id: 1,
+    name: 'pikachu',
+    base_experience: 65,
+    weight: 74,
+    forms: [
+      {
+        name: 'pikachu',
+        url: 'https://pokeapi.co/api/v2/pokemon/25/',
+      },
+    ],
+  };
   beforeEach(() => {
     vi.clearAllMocks();
     localStorage.clear();
@@ -33,7 +54,11 @@ describe('Dashboard', () => {
         () => new Promise(() => {})
       );
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       expect(screen.getByTestId('loader')).toBeInTheDocument();
     });
@@ -41,7 +66,11 @@ describe('Dashboard', () => {
     it('load and show Pokemon list', async () => {
       vi.mocked(fetchPokemonList).mockResolvedValueOnce(mockPokemonList);
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText('bulbasaur')).toBeInTheDocument();
@@ -59,7 +88,11 @@ describe('Dashboard', () => {
         new Error(errorMessage)
       );
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText(errorMessage)).toBeInTheDocument();
@@ -76,7 +109,11 @@ describe('Dashboard', () => {
 
       vi.mocked(fetchPokemonList).mockResolvedValueOnce(mockPokemonList);
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText('bulbasaur')).toBeInTheDocument();
@@ -102,7 +139,11 @@ describe('Dashboard', () => {
 
       vi.mocked(fetchPokemonList).mockResolvedValueOnce(mockPokemonList);
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText('bulbasaur')).toBeInTheDocument();
@@ -124,7 +165,11 @@ describe('Dashboard', () => {
 
       vi.mocked(fetchPokemonList).mockResolvedValueOnce(mockPokemonList);
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText('bulbasaur')).toBeInTheDocument();
@@ -153,7 +198,11 @@ describe('Dashboard', () => {
       vi.mocked(fetchPokemonList).mockResolvedValueOnce(mockPokemonList);
       vi.mocked(searchPokemon).mockResolvedValueOnce(mockSearchResult);
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText('bulbasaur')).toBeInTheDocument();
@@ -169,14 +218,24 @@ describe('Dashboard', () => {
     it('restores the search query from localStorage', async () => {
       localStorage.setItem('searchQuery', JSON.stringify('charmander'));
 
-      vi.mocked(searchPokemon).mockResolvedValueOnce([
-        {
-          name: 'charmander',
-          url: 'https://pokeapi.co/api/v2/pokemon/4/',
-        },
-      ]);
+      vi.mocked(searchPokemon).mockResolvedValueOnce({
+        id: 1,
+        name: 'pikachu',
+        base_experience: 65,
+        weight: 74,
+        forms: [
+          {
+            name: 'charmander',
+            url: 'https://pokeapi.co/api/v2/pokemon/4/',
+          },
+        ],
+      });
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText('charmander')).toBeInTheDocument();
@@ -197,7 +256,11 @@ describe('Dashboard', () => {
         new Error('Network error')
       );
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText(/Network error/i)).toBeInTheDocument();
@@ -219,9 +282,18 @@ describe('Dashboard', () => {
 
   describe('Edge cases', () => {
     it('show empty list if data = null', async () => {
-      vi.mocked(fetchPokemonList).mockResolvedValueOnce([]);
+      vi.mocked(fetchPokemonList).mockResolvedValueOnce({
+        count: 1,
+        next: '',
+        previous: null,
+        results: [],
+      });
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
@@ -236,7 +308,11 @@ describe('Dashboard', () => {
       vi.mocked(fetchPokemonList).mockResolvedValueOnce(mockPokemonList);
       vi.mocked(searchPokemon).mockResolvedValueOnce(mockSearchResult);
 
-      render(<Dashboard />);
+      render(
+        <MemoryRouter>
+          <Dashboard />
+        </MemoryRouter>
+      );
 
       await waitFor(() => {
         expect(screen.getByText('bulbasaur')).toBeInTheDocument();

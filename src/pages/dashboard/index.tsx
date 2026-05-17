@@ -4,16 +4,21 @@ import { Loader } from '@/shared/ui';
 import { ErrorFallback } from '@/app/providers';
 import { TestErrorButton } from './ui/test-error-button';
 import { useDataLoading } from './hooks/use-data-loading';
+import { Pagination } from '@/shared/ui/pagination';
 
 export const Dashboard = () => {
   const {
-    data,
     isLoading,
     searchQuery,
     error,
+    cardsData,
+    totalPages,
+    currentPage,
+    setPage,
     handleSearch,
     handleResetError,
   } = useDataLoading();
+
   return (
     <>
       <SearchBar
@@ -24,10 +29,10 @@ export const Dashboard = () => {
 
       {isLoading && <Loader />}
 
-      {data && (
+      {cardsData && (
         <div className="border border-border rounded-lg p-2">
-          {data.map((item) => (
-            <Card key={item.name} name={item.name} url={item.url} />
+          {cardsData.map((item) => (
+            <Card key={item.name} name={item.name} />
           ))}
         </div>
       )}
@@ -35,6 +40,11 @@ export const Dashboard = () => {
       {error && <ErrorFallback error={error} resetError={handleResetError} />}
 
       <TestErrorButton />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setPage}
+      />
     </>
   );
 };

@@ -10,6 +10,10 @@ export type Results = {
   url: string;
 };
 
-export type SearchResult = {
+export type SearchData = {
+  id: number;
+  name: string;
+  base_experience: number;
+  weight: number;
   forms: Results[];
 };

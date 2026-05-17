@@ -1,26 +1,38 @@
 import { useEffect, useState } from 'react';
 import { fetchPokemonList, searchPokemon } from '@/shared/api';
 import { useLocalStorage } from '@/shared/hooks';
-import type { Results } from '@/shared/types';
+import type { PokemonData, Results } from '@/shared/types';
+import { usePagination } from '@/shared/hooks/use-pagination';
 
 interface UseDataReturn {
-  data: Results[] | null;
+  data: PokemonData | null;
+  cardsData: Results[] | null;
   searchQuery: string;
   isLoading: boolean;
   error: string | null;
+  totalPages: number;
+  currentPage: number;
+  setPage: (page: number) => void;
   handleSearch: (query: string) => void;
   handleResetError: () => void;
 }
 
 export const useDataLoading = (): UseDataReturn => {
   const [searchQuery, setSearchQuery] = useLocalStorage('searchQuery', '');
-  const [data, setData] = useState<Results[] | null>(null);
+  const [data, setData] = useState<PokemonData | null>(null);
+  const [cardsData, setCardsData] = useState<Results[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const LIMIT = 10;
+
+  const { currentPage, setPage } = usePagination({ totalPages });
+
+  const offset = (currentPage - 1) * LIMIT;
 
   useEffect(() => {
     loadInitialData();
-  }, []);
+  }, [currentPage]);
 
   const loadInitialData = () => {
     if (searchQuery) {
@@ -34,8 +46,13 @@ export const useDataLoading = (): UseDataReturn => {
     setIsLoading(true);
     setError(null);
     try {
-      const data = await fetchPokemonList();
+      const data = await fetchPokemonList(LIMIT, offset);
       setData(data);
+      setCardsData(data.results);
+
+      const totalPages = Math.ceil(data.count / LIMIT);
+
+      setTotalPages(totalPages);
     } catch (error) {
       setData(null);
       setError(error instanceof Error ? error.message : 'Loading error');
@@ -54,7 +71,8 @@ export const useDataLoading = (): UseDataReturn => {
     setError(null);
     try {
       const data = await searchPokemon(query);
-      setData(data);
+      setCardsData(data.forms);
+      setTotalPages(0);
     } catch (error) {
       setData(null);
       setError(error instanceof Error ? error.message : 'Data not found');
@@ -84,6 +102,10 @@ export const useDataLoading = (): UseDataReturn => {
     isLoading,
     searchQuery,
     error,
+    cardsData,
+    totalPages,
+    currentPage,
+    setPage,
     handleSearch,
     handleResetError,
   };
