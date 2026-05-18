@@ -6,7 +6,7 @@ import { TestErrorButton } from './ui/test-error-button';
 import { useDataLoading } from './hooks/use-data-loading';
 import { Pagination } from '@/shared/ui/pagination';
 import { useDataDetails } from './hooks/use-data-details';
-import { CardDetails } from './ui/card-details/CardDetails';
+import { CardDetails } from './ui/card-details';
 
 export const Dashboard = () => {
   const {
