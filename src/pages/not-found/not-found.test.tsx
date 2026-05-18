@@ -2,14 +2,14 @@ import { it, expect } from 'vitest';
 
 import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
-import { Header } from './index';
+import { NotFound } from './index';
 
-it('show header', () => {
+it('show NotFound page', () => {
   render(
     <MemoryRouter>
-      <Header />
+      <NotFound />
     </MemoryRouter>
   );
 
-  expect(screen.getByText('RS React App')).toBeInTheDocument();
+  expect(screen.getByText('404 error')).toBeInTheDocument();
 });

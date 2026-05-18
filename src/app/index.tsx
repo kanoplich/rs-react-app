@@ -1,13 +1,11 @@
-import { Component } from 'react';
-import { Layout } from './layout';
+import { RouterProvider } from 'react-router-dom';
 import { ErrorBoundary } from './providers';
+import { router } from './router';
 
-export class App extends Component {
-  render() {
-    return (
-      <ErrorBoundary>
-        <Layout />
-      </ErrorBoundary>
-    );
-  }
-}
+export const App = () => {
+  return (
+    <ErrorBoundary>
+      <RouterProvider router={router} />
+    </ErrorBoundary>
+  );
+};

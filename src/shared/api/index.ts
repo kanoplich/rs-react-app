@@ -1,10 +1,11 @@
-import type { PokemonData, Results, SearchResult } from '../types/data';
+import type { PokemonData, SearchData } from '../types/data';
 
 export const fetchPokemonList = async (
-  limit: number = 20
-): Promise<Results[]> => {
+  limit: number = 10,
+  offset: number = 0
+): Promise<PokemonData> => {
   const response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`
+    `https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`
   );
 
   if (!response.ok) {
@@ -13,16 +14,16 @@ export const fetchPokemonList = async (
 
   const data: PokemonData = await response.json();
 
-  return data.results;
+  return data;
 };
 
-export const searchPokemon = async (query: string): Promise<Results> => {
+export const searchPokemon = async (query: string): Promise<SearchData> => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
 
   if (!response.ok) {
     throw new Error('Data not found');
   }
 
-  const data: SearchResult = await response.json();
-  return data.forms;
+  const data: SearchData = await response.json();
+  return data;
 };

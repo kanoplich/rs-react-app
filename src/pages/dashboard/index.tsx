@@ -1,153 +1,87 @@
-import { Component } from 'react';
 import { SearchBar } from './ui/search-bar';
 import { Card } from './ui/card/card';
 import { Loader } from '@/shared/ui';
-import type { Results } from '@/shared/types/data';
-import { ErrorFallback } from '@/app/providers/error-boundary/error-fallback';
+import { ErrorFallback } from '@/app/providers';
 import { TestErrorButton } from './ui/test-error-button';
-import { fetchPokemonList, searchPokemon } from '@/shared/api';
+import { useDataLoading } from './hooks/use-data-loading';
+import { Pagination } from '@/shared/ui/pagination';
+import { useDataDetails } from './hooks/use-data-details';
+import { CardDetails } from './ui/card-details';
 
-interface DashboardProps {
-  name?: string;
-}
+export const Dashboard = () => {
+  const {
+    isLoading,
+    searchQuery,
+    error,
+    cardsData,
+    totalPages,
+    currentPage,
+    setPage,
+    handleSearch,
+    handleResetError,
+  } = useDataLoading();
 
-interface DashboardState {
-  data: Results[] | null;
-  loading: boolean;
-  error: string | null;
-  searchQuery: string;
-}
+  const {
+    handleOpen,
+    handleClose,
+    dataDetails,
+    isDetailsOpen,
+    isLoading: isLoadingDetails,
+    error: errorDetails,
+    handleResetError: handleResetErrorDetails,
+  } = useDataDetails();
 
-export class Dashboard extends Component<DashboardProps, DashboardState> {
-  private isMounted = false;
+  return (
+    <>
+      <SearchBar
+        onSearch={handleSearch}
+        initialValue={searchQuery}
+        placeholder="Search... Enter full name"
+      />
+      <div className="flex gap-6 mt-4">
+        <div
+          className={`transition-all duration-300 ${isDetailsOpen ? 'w-1/2' : 'w-full'}`}
+        >
+          {isLoading && <Loader />}
 
-  constructor(props: DashboardProps) {
-    super(props);
+          {cardsData && (
+            <div className="border border-border rounded-lg p-2">
+              {cardsData.map((item) => (
+                <Card
+                  key={item.name}
+                  name={item.name}
+                  handleOpen={handleOpen}
+                />
+              ))}
+            </div>
+          )}
+        </div>
 
-    const searchQuery = localStorage.getItem('searchQuery') || '';
-    this.state = {
-      data: null,
-      loading: true,
-      error: null,
-      searchQuery,
-    };
-  }
+        {!error && isDetailsOpen && (
+          <div className="w-1/2 border-l border-border pl-6 animate-slideIn">
+            {isLoadingDetails && <Loader />}
+            {errorDetails && !isLoadingDetails && (
+              <ErrorFallback
+                error={errorDetails}
+                resetError={handleResetErrorDetails}
+              />
+            )}
 
-  componentDidMount() {
-    this.isMounted = true;
-    this.loadInitialData();
-  }
-
-  loadInitialData = () => {
-    const { searchQuery } = this.state;
-    if (searchQuery) {
-      this.searchData(searchQuery);
-    } else {
-      this.fetchData();
-    }
-  };
-
-  fetchData = async () => {
-    this.setState({ loading: true, error: null });
-
-    try {
-      const data = await fetchPokemonList();
-
-      if (this.isMounted) {
-        this.setState({
-          data,
-          loading: false,
-          error: null,
-        });
-      }
-    } catch (err) {
-      if (this.isMounted) {
-        this.setState({
-          error: err instanceof Error ? err.message : 'Loading error',
-          loading: false,
-          data: null,
-        });
-      }
-    }
-  };
-
-  searchData = async (query: string) => {
-    if (!query) {
-      this.fetchData();
-      return;
-    }
-
-    this.setState({ loading: true, error: null });
-
-    try {
-      const data = await searchPokemon(query);
-
-      if (this.isMounted) {
-        this.setState({
-          data: [data],
-          loading: false,
-          error: null,
-        });
-      }
-    } catch (err) {
-      if (this.isMounted) {
-        this.setState({
-          error: err instanceof Error ? err.message : 'Data not found',
-          loading: false,
-          data: null,
-        });
-      }
-    }
-  };
-
-  handleSearch = (query: string) => {
-    const queryTrimmed = query.trim().toLocaleLowerCase();
-
-    localStorage.setItem('searchQuery', queryTrimmed);
-    this.setState({ searchQuery: queryTrimmed });
-
-    if (queryTrimmed) {
-      this.searchData(queryTrimmed);
-    } else {
-      this.fetchData();
-    }
-  };
-
-  handleResetError = (): void => {
-    this.setState({
-      error: null,
-    });
-
-    this.loadInitialData();
-  };
-
-  render() {
-    const { loading, data, searchQuery, error } = this.state;
-
-    return (
-      <>
-        <SearchBar
-          onSearch={this.handleSearch}
-          initialValue={searchQuery}
-          placeholder="Search... Enter full name"
-        />
-
-        {loading && <Loader />}
-
-        {data && (
-          <div className="border border-border rounded-lg p-2">
-            {data.map((item) => (
-              <Card key={item.name} name={item.name} url={item.url} />
-            ))}
+            {dataDetails && !isLoadingDetails && !errorDetails && (
+              <CardDetails data={dataDetails} handleClose={handleClose} />
+            )}
           </div>
         )}
+      </div>
 
-        {error && (
-          <ErrorFallback error={error} resetError={this.handleResetError} />
-        )}
+      {error && <ErrorFallback error={error} resetError={handleResetError} />}
 
-        <TestErrorButton />
-      </>
-    );
-  }
-}
+      <TestErrorButton />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setPage}
+      />
+    </>
+  );
+};

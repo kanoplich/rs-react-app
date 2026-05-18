@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { Search, Button } from '@/shared/ui';
 
 interface SearchBarProps {
@@ -8,45 +8,37 @@ interface SearchBarProps {
   disabled?: boolean;
 }
 
-interface SearchBarState {
-  query: string;
-}
+export const SearchBar = ({
+  onSearch,
+  initialValue,
+  placeholder,
+  disabled,
+}: SearchBarProps) => {
+  const [query, setQuery] = useState(initialValue || '');
 
-export class SearchBar extends Component<SearchBarProps, SearchBarState> {
-  constructor(props: SearchBarProps) {
-    super(props);
-    this.state = { query: props.initialValue || '' };
-  }
-
-  handleSearch = () => {
-    this.props.onSearch(this.state.query);
+  const handleSearch = () => {
+    onSearch(query);
   };
 
-  handleChange = (query: string) => {
-    this.setState({ query });
+  const handleChange = (query: string) => {
+    setQuery(query);
   };
-
-  render() {
-    const { placeholder, disabled } = this.props;
-    const { query } = this.state;
-
-    return (
-      <div className="flex my-6">
-        <Search
-          value={query}
-          onChange={this.handleChange}
-          onSearch={this.handleSearch}
-          placeholder={placeholder}
-          disabled={disabled}
-        />
-        <Button
-          onClick={this.handleSearch}
-          disabled={disabled || !query.trim()}
-          className="rounded-l-none rounded-r-md"
-        >
-          Search
-        </Button>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="flex my-6">
+      <Search
+        value={query}
+        onChange={handleChange}
+        onSearch={handleSearch}
+        placeholder={placeholder}
+        disabled={disabled}
+      />
+      <Button
+        onClick={handleSearch}
+        disabled={disabled || !query.trim()}
+        className="rounded-l-none rounded-r-md"
+      >
+        Search
+      </Button>
+    </div>
+  );
+};

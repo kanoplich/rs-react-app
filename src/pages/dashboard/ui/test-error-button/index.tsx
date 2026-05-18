@@ -1,43 +1,28 @@
+import { useEffect, useState } from 'react';
 import { Button } from '@/shared/ui';
-import { Component } from 'react';
 
 interface TestErrorButtonProps {
   onError?: () => void;
 }
 
-interface TestErrorButtonState {
-  shouldThrowError: boolean;
-}
+export const TestErrorButton = ({ onError }: TestErrorButtonProps) => {
+  const [shouldThrowError, setShouldThrowError] = useState(false);
 
-export class TestErrorButton extends Component<
-  TestErrorButtonProps,
-  TestErrorButtonState
-> {
-  constructor(props: TestErrorButtonProps) {
-    super(props);
-    this.state = {
-      shouldThrowError: false,
-    };
-  }
-
-  handleTriggerError = (): void => {
-    this.setState({ shouldThrowError: true });
-    this.props.onError?.();
-  };
-
-  componentDidUpdate(): void {
-    if (this.state.shouldThrowError) {
+  useEffect(() => {
+    if (shouldThrowError) {
       throw new Error('Simulated error from test button');
     }
-  }
+  }, [shouldThrowError]);
 
-  render() {
-    return (
-      <div className="text-right">
-        <Button className="mt-4" onClick={this.handleTriggerError}>
-          Error Button
-        </Button>
-      </div>
-    );
-  }
-}
+  const handleTriggerError = (): void => {
+    setShouldThrowError(true);
+    onError?.();
+  };
+  return (
+    <div className="text-right">
+      <Button className="mt-4" onClick={handleTriggerError}>
+        Error Button
+      </Button>
+    </div>
+  );
+};
