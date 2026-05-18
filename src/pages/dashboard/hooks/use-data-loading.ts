@@ -55,6 +55,7 @@ export const useDataLoading = (): UseDataReturn => {
       setTotalPages(totalPages);
     } catch (error) {
       setData(null);
+      setCardsData(null);
       setError(error instanceof Error ? error.message : 'Loading error');
     } finally {
       setIsLoading(false);
@@ -75,6 +76,7 @@ export const useDataLoading = (): UseDataReturn => {
       setTotalPages(0);
     } catch (error) {
       setData(null);
+      setCardsData(null);
       setError(error instanceof Error ? error.message : 'Data not found');
     } finally {
       setIsLoading(false);
